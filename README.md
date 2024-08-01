@@ -45,7 +45,7 @@ This command allows you to preview the production build locally.
 ### `npm install`
 This will create the node_modules folder and package-lock.json.
 
-### `node server.js`
+### `node app.js`
 This will start your backend server.
 
 ## Learn More
