@@ -1,5 +1,7 @@
 # time-guardian
 
+![Project Preview](./preview/tg.png)
+
 ## Cloning and Running the React Project Locally
 
 ### `git clone https://github.com/y4th4rthh/time-guardian`
