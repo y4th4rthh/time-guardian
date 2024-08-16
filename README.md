@@ -1,4 +1,4 @@
-# time-guardian
+# Time Guardian
 
 ![Project Preview](./preview/tg.png)
 
