@@ -389,7 +389,7 @@ app.post('/addtask', async (req, res) => {
 
     UserTaskModel.create({ tasktitle: title, taskuser: user, description: description, iscompleted: false }).then(
         newTask => {
-            console.log("Task added to user successfully");
+            console.log("Task added successfully to UserTask");
         }).catch(err => {
             console.error(err);
             res.status(500).json({ error: err.message });
@@ -431,7 +431,7 @@ app.post('/deletetask', async (req, res) => {
     UserTaskModel.findOneAndDelete(userfilter
         ).then(
             newTask => {
-                console.log("Task deleted successfully");
+                console.log("Task deleted successfully from UserTask");
                 // res.json(newTask);
             }).catch(err => {
                 console.error(err);
@@ -468,7 +468,7 @@ app.post('/completetask', async (req, res) => {
         });
     UserTaskModel.findOneAndDelete(filter).then(
         deleteTask => {
-            console.log("Task deleted successfully");
+            console.log("Task deleted successfully from Usertask");
             res.json(deleteTask);
         }).catch(err => {
             console.error(err);
@@ -478,7 +478,7 @@ app.post('/completetask', async (req, res) => {
 
 app.post('/gettasks', async (req, res) => {
     const { username } = req.body;
-    console.log("Email received: " + username);
+    // console.log("Email received: " + username);
     try {
         EmployeeInfoModel.findOne({ email: username }, 'fName').then(
             getname => {
@@ -591,18 +591,19 @@ app.post('/sendLeaveRequest', async (req, res) => {
 app.post('/checkRequest', async (req, res) => {
     const { email } = req.body;
 
-    console.log('Received email:', email);
+    // console.log('Received email:', email);
     const filter = { email: email };
 
     EarnedLeaveEmployeeModel.findOne(filter, 'status').then(
         newData => {
-            console.log("Data found successfully: " + newData);
+            // console.log("Data found successfully: " + newData);
             if (newData.status === 'Approved') {
                 res.json('Your Leave Request has been Approved !!');
             }
+            res.json('Your Leave Request is Pending !!');
         }
     ).catch(err => {
-        console.error(err);
+        // console.error(err.message);
         res.status(500).json({ error: err.message });
     });
 });
